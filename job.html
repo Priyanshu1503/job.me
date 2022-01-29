@@ -25,7 +25,7 @@
     background: linear-gradient(transparent,#ff0000);
 }
     body{
-      min-height: 100vh;
+      min-height: 100%;
       background-color: #fff;
       background-size: cover;
       background-position: center;
@@ -258,7 +258,7 @@
 
 .popup-box{
   position: relative;
-  background: rgba(255, 255, 255, 0.8);
+  background-color: black;
   backdrop-filter: blur(10px);
   width: 350px;
   height: 200px;
@@ -267,7 +267,7 @@
   align-items: center;
   flex-direction: column;
   margin: 20px;
-  padding: 50px 40px;
+  padding: 50px 20px;
   border-radius: 20px;
   box-shadow: 0 5px 25px rgb(0 0 0 / 20%);
   transform: scale(0);
@@ -321,13 +321,59 @@
   right: 0;
   margin: 15px;
   cursor: pointer;
-  opacity: 0.5;
   transition: 0.3s ease;
+  color: #fff;
   transition-property: opacity;
 }
 
 .close-btn:hover{
   opacity: 1;
+}
+.flip-card {
+  background-color: transparent;
+  margin-top:10%;
+  margin-left: 10%;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
 }
 
 
@@ -354,7 +400,6 @@
 .whatsapp{
   color:#0fa958;
 }
-
 .footer{
   width:100%;
   display: flex;
@@ -420,6 +465,113 @@ body::after{
   top:-10rem; right:-10rem;
 }
 }
+body {
+	 background: url(http://wallpaper.zone/img/4336594.png);
+}
+ header {
+	 width: 100%;
+	 margin: auto;
+	 text-align: center;
+	 font-weight: 100;
+	 text-transform: uppercase;
+}
+ header h1 {
+	 margin-bottom: 0;
+}
+ header h2 {
+	 font-size: 0.8em;
+	 color: rgba(0, 0, 0, .4);
+}
+ .container {
+	 width: 80%;
+	 margin: auto;
+	 display: flex;
+	 height: 100vh;
+	 align-items: center;
+}
+ .card-container {
+	/* background: rgba(0,0,0,0.4);
+	 */
+	 display: inline-block;
+	 margin: 0 auto;
+	 padding: 0 12px;
+	 perspective: 900px;
+	 text-align: center;
+}
+ .card {
+	 position: relative;
+	 width: 300px;
+	 height: 260px;
+	 transition: all 0.6s ease;
+	 transform-style: preserve-3d;
+}
+ .front, .back {
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 100%;
+	 border-radius: 5px;
+	 color: white;
+	 box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+	 backface-visibility: hidden;
+}
+ .front {
+	 background: #fec606;
+	 font-size: 12px;
+}
+ .front .card-img {
+	 background: black;
+	 width: 100%;
+	 height: 210px;
+	 overflow: hidden;
+}
+ .front .card-img img {
+	 width: 100%;
+	 height: 100%;
+}
+ .front .card-body {
+	 width: 100%;
+	 height: 150px;
+}
+ .front .card-body h3 {
+	 font-size: 15px;
+}
+ .front .card-footer {
+	 font-size: 16px;
+}
+ .back {
+	 background: tomato;
+	 font-size: 14px;
+}
+ .back p {
+	 padding: 1em;
+	 font-weight: 100;
+}
+ .back p span {
+	 font-weight: bold;
+}
+ .back ul li {
+	 text-align: left;
+}
+ .back button {
+	 background: none;
+	 border-radius: 4px;
+	 border: solid 1px white;
+	 color: white;
+	 padding: 0.5em 1em;
+}
+ .back button:hover {
+	 background: white;
+	 color: green;
+}
+ .card-container:hover .card {
+	 transform: rotateY(180deg);
+}
+ .back {
+	 transform: rotateY(180deg);
+}
+ 
   </style>
 </head>
 <body>
@@ -493,33 +645,102 @@ body::after{
         <td data-label="JOB TYPE">FULL TIME</td>
         <td data-label="LOCATION">INDORE</td>
         <td data-label="ACCESSIBLE"><span class="text_open">[available]</span></td>
-        <td data-label="#"><a href="page.html" class="btn">Apply Now</a></td>
+        <td data-label="#"><a href="page.html" class="btn apply-now">Apply Now</a></td>
       </tr>
       <tr>
         <td data-label="COMPANY NAME">WIPRO</td>
         <td data-label="JOB TYPE">FULL TIME</td>
         <td data-label="LOCATION">BANGALORE</td>
         <td data-label="ACCESSIBLE"><span class="text_open">[available]</span></td>
-        <td data-label="#"><a href="#" class="btn">Apply Now</a></td>
+        <td data-label="#"><a href="#" class="btn apply-now">Apply Now</a></td>
       </tr>
       <tr>
         <td data-label="COMPANY NAME">FACEBOOK</td>
         <td data-label="JOB TYPE">FULL TIME</td>
         <td data-label="LOCATION">MUMBAI</td>
         <td data-label="ACCESSIBLE"><span class="text_open">[available]</span></td>
-        <td data-label="#"><a href="#" class="btn">Apply Now</a></td>
+        <td data-label="#"><a href="#" class="btn apply-now">Apply Now</a></td>
       </tr>
       <tr>
         <td data-label="COMPANY NAME">GOOGLE</td>
         <td data-label="JOB TYPE">FULL TIME</td>
         <td data-label="LOCATION">DELHI</td>
         <td data-label="ACCESSIBLE"><span class="text_open">[available]</span></td>
-        <td data-label="#"><a href="#" class="btn">Apply Now</a></td>
+        <td data-label="#"><a href="#" class="btn apply-now">Apply Now</a></td>
       </tr>
       </tbody>
     </table>
   </div>
-
+  <div class="container">  
+    <div class="card-container">
+        <div class="card">
+          <div class="front">
+            <div class="card-img">
+             <img src="http://a.abcnews.com/images/Entertainment/GTY_Creedence_Clearwater_Revival_151002_DC_4x3_992.jpg" alt="ccr" /> 
+            </div>
+            <div class="card-body">
+              <h3>CREEDENCE CLEARWATER REVIVAL</h3>
+            </div>          
+          </div>
+          <div class="back">
+            <p><span>Creedence Clearwater Revival</span>, often shortened to Creedence and abbreviated as CCR, was an American rock band active in the late 1960s and early 1970s</p>
+            <ul>
+              <li>Creedence Clearwater Revival (1968)</li>
+              <li>Bayou Country (1969)</li>
+              <li>Green River (1969)</li>
+              <li>Willy and the Poor Boys (1969)</li>
+            </ul>
+            <br />
+            <button>Buy now!</button>
+          </div>
+        </div>
+    </div>
+  
+    <div class="card-container">
+      <div class="card">
+        <div class="front">
+            <div class="card-img">
+             <img src="http://www.rockbandaide.com/wp-content/uploads/2015/08/Janis-Joplin.jpg" alt="ccr" /> 
+            </div>
+            <div class="card-body">
+              <h3>JANIS JOPLIN</h3>
+            </div>          
+        </div>
+        <div class="back">
+            <p><span>Janis Lyn Joplin</span> was an American singer considered the premier female blues vocalist of the Sixties; her raw, powerful and uninhibited singing style</p>
+            <ul>
+              <li>Big Brother and the Holding Company (1967)</li>
+              <li>Cheap Thrills (1968), 2x Platinum</li>
+              <li>I Got Dem Ol' Kozmic Blues Again Mama! (1969)</li>            
+            </ul>          
+            <button>Buy now!</button>
+        </div>
+      </div>
+    </div>
+  
+   <div class="card-container">
+      <div class="card">
+        <div class="front">
+            <div class="card-img">
+             <img src="http://ultimateclassicrock.com/files/2014/10/Led-Zeppelin1.jpg?w=630" alt="ccr" /> 
+            </div>
+            <div class="card-body">
+              <h3>LED ZEPPELIN</h3>
+            </div>          
+        </div>
+        <div class="back">
+            <p><span>Led Zeppelin</span> were an English rock band formed in London in 1968. The group consisted of guitarist Jimmy Page, singer Robert Plant, bassist and keyboardist </p>
+            <ul>
+              <li>Led Zeppelin (1969)</li>
+              <li>Led Zeppelin II (1969)</li>
+              <li>Led Zeppelin III (1970)</li>            
+              <li>Led Zeppelin IV (1971)</li>
+            </ul>          
+            <button>Buy now!</button>
+        </div>
+      </div>
+    </div>    
+  </div>
   <section class="footer">
 
 
