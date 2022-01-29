@@ -12,14 +12,24 @@
       padding: 0;
       box-sizing: border-box;
       font-family: sans-serif;
-      text-transform: uppercase;
       text-decoration: none;
     }
+    ::-webkit-scrollbar{
+    width: 7px;
+}
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(transparent,rgb(80, 7, 7));
+    border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: linear-gradient(transparent,#ff0000);
+}
     body{
       min-height: 100vh;
-      background-color: rgb(212, 218, 215);
+      background-color: #fff;
       background-size: cover;
       background-position: center;
+      overflow-x: hidden;
     }
     header{
       position: absolute;
@@ -97,7 +107,7 @@
         left: 0;
         right: 0;
         background: #fff;
-        border-top: 1px solid rgba(0,0,0,0.1);
+        border-top: 1px solid rgba(0,0,0,0.1); 
         display: none;
       }
       header .navbar ul li{
@@ -119,13 +129,27 @@
       }
     }
     .heading{
-      margin-top: 10%;
-      font-size: 40px;
-      text-align: center;
-      color: #005f73;
-      margin-bottom: 40px;
-    }
+    margin-top: 10%;
+    margin-left: 2%;
+}
+    .heading{
+   font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+   font-size: 92px;
+   padding: 2px 50px;
+   text-align: center;
+   text-transform: uppercase;
+   text-rendering: optimizeLegibility;
+
+   color: #005f73;
+    background: transparent;
+    letter-spacing: .05em;
+    /* text-shadow: 
+      4px 4px 0px #036579, 
+      7px 7px 0px rgba(0, 0, 0, 0.2); */
+      text-shadow: 2px 2px 5px #036579
+}
     .table{
+      margin-top: 8%;
       margin-left: 10%;
       width: 80%;
       border-collapse: collapse;
@@ -167,7 +191,7 @@
       text-decoration: none;
       line-height: 35px;
       display: inline-block;
-      background-color: #003166;
+      background-color: #300066;
       font-weight: 500;
       color: #fff;
       text-align: center;
@@ -178,9 +202,13 @@
       font-size: 14px;
       opacity: 1;
     }
+    .table tbody tr td .btn:hover{
+      background-color: #000000;
+    }
     @media (max-width:991px){
       .heading{
         margin-top: 20%;
+        font-size: 50px;
       }
       .table thead{
         display: none;
@@ -258,14 +286,28 @@
   text-align: center;
 }
 .popup-box .text h2 i{
+  color: green;
   font-size: 40px;
   padding: 10px 15px;
 }
-.popup-box .text h2 a{
-  padding: 3px 5px;
+.popup-box .text .tel i{
+  color: #129aac;
+  font-size: 40px;
+  padding: 10px 15px;
+}
+.popup-box .text .tel a{
+  padding: 8px 10px;
+  margin: auto;
   background-color: #000;
   border-radius: 20px;
-  color: #009879;
+  color: #129aac;
+}
+.popup-box .text h2 a{
+  padding: 8px 10px;
+  margin: auto;
+  background-color: #000;
+  border-radius: 20px;
+  color: green;
 }
 .popup-box .text h2{
   line-height: 90px;
@@ -274,7 +316,7 @@
 
 .close-btn{
   position: absolute;
-  font-size: 1em;
+  font-size: 1.5em;
   top: 0;
   right: 0;
   margin: 15px;
@@ -319,7 +361,7 @@
   align-items: center;
   justify-content: space-between;
   padding:1rem 2rem;
-  margin-top: 20%;
+  margin-top: 90%;
   background-color: #005f73;
 }
 
@@ -334,11 +376,55 @@
   font-size: 1.8rem;
   padding:0 1rem;
 }
+
+body .row{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding:0 4rem;
+}
+
+body::before, body::after{
+  content: '';
+  position: absolute;
+  z-index: -1;
+  opacity:.2;
+  border-radius: 50%;
+}
+
+body::before{
+  height:50rem;
+  width:50rem;
+  background:#ccc;
+  bottom:-40rem; left:-10rem;
+}
+
+body::after{
+  height:40rem;
+  width:40rem;
+  background: #438552;
+  top:-10rem; right:-10rem;
+}
+@media (max-width:991px){
+  body::before{
+  height:20rem;
+  width:20rem;
+  background:#ccc;
+  bottom:-40rem; left:-10rem;
+}
+
+body::after{
+  height:30rem;
+  width:30rem;
+  background: #438552;
+  top:-10rem; right:-10rem;
+}
+}
   </style>
 </head>
 <body>
   <header>
-    <a href="#" class="logo">LOGO</a>
+    <a href="#" class="logo">JoB LeLo</a>
     <input type="checkbox" id="menu-bar">
     <label for="menu-bar">Menu</label>
 
@@ -374,14 +460,16 @@
       </ul>
     </nav>
   </header>
+  <div class="row">
 
+  </div>
   <div class="popup-screen">
     <div class="popup-box">
       <i class="fas fa-times close-btn"></i>
       <div class="text">
         <h2><i class="fab fa-whatsapp-square"></i><a href="#">WHATSAPP</a></h2>
         <hr width="250">
-        <h2><i class="fab fa-telegram"></i><a href="#">TELEGRAM</a></h2>
+        <h2 class="tel"><i class="fab fa-telegram"></i><a href="#">TELEGRAM</a></h2>
       </div>
     </div>
   </div>
@@ -405,7 +493,7 @@
         <td data-label="JOB TYPE">FULL TIME</td>
         <td data-label="LOCATION">INDORE</td>
         <td data-label="ACCESSIBLE"><span class="text_open">[available]</span></td>
-        <td data-label="#"><a href="job offer.html" class="btn">Apply Now</a></td>
+        <td data-label="#"><a href="page.html" class="btn">Apply Now</a></td>
       </tr>
       <tr>
         <td data-label="COMPANY NAME">WIPRO</td>
@@ -437,10 +525,9 @@
 
 
     <div class="icons">
-      <a href="#" class="fab fa-facebook-f"></a>
-      <a href="#" class="fab fa-twitter"></a>
+      <a href="#" class="fab fa-whatsapp-square"></a>
+      <a href="#" class="fab fa-telegram"></a>
       <a href="#" class="fab fa-instagram"></a>
-      <a href="#" class="fab whatsapp fa-whatsapp-square"></a>
     </div>
     
     </section>
