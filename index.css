@@ -367,22 +367,6 @@ background-color:#3cff00;
 color:black;
 }
 
-
-@keyframes animate{
-0%{
-  background-color: #000;
-  text-shadow: none;
-}
-100%{
-  background-color: #3cff00;
-  text-shadow: 0,0,10px #0000,
-  0,0,20px #000,
-  0,0,40px #000,
-  0,0,80px #000,
-  0,0,160px #000;
-}
-
-}
 .content-table tbody tr{
   border-bottom: 1px solid #ddd;
 }
@@ -482,6 +466,16 @@ from, to { border-color: transparent }
 20% { border-color: transparent; }
 }
 
+.text_open{
+  animation:blinkingText 0.7s infinite;
+}
+@keyframes blinkingText{
+  0%{     color: #3cff00  }
+  49%{    color: #3cff00; }
+  60%{    color: transparent; }
+  99%{    color:transparent;  }
+  100%{   color: #3cff00;    }
+}
 .popup-screen{
 z-index: 999999;
 position: fixed;
